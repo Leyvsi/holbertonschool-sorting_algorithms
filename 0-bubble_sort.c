@@ -1,35 +1,47 @@
 #include "sort.h"
 
 /**
- * bubble_sort - tri un tableau d'entiers en ordre croissant
- * @array: tableau d'entiers
- * @size: nombre d'éléments
- */
+ * bubble_sort - Sorts an array of integers in ascending order
+ * swap - Swaps two elements in an array
+ * @array: Array to sort
+ * @size: Size of the array
+ * @i: Index of the first element
+ * @j: Index of the second element
+*/
+
+void swap(int *arr, int i, int j)
+{
+	int temp;
+
+	temp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temp;
+}
 
 void bubble_sort(int *array, size_t size)
 {
-size_t i, j;
-int tmp;
-int swapped;
+	size_t i, j;
+	int swapped;
 
-if (!array == || size < 2)
-return;
+	if (!array || size < 2)
+		return;
 
-for (i = 0; i < size - 1; i++)
-{
-swapped = 0;
-for (j = 0; j < size - 1 - i; j++)
-{
-if (array[j] > array[j + 1])
-{
-tmp = array[j];
-array[j] = array[j + 1];
-array[j + 1] = tmp;
-swapped = 1;
-print_array(array, size);
+	for (i = 0; i < size - 1; i++)
+	{
+		swapped = 0;
+		for (j = 0; j < size - i - 1; j++)
+		{
+			if (array[j] > array[j + 1])
+			{
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+				swapped = 1;
+				print_array(array, size);
+			}
+		}
+		if (!swapped)
+			break;
+	}
 }
-}
-if (!swapped)
-break;
-}
-}
+
