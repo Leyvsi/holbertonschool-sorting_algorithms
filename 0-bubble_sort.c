@@ -12,7 +12,7 @@ size_t i, j;
 int tmp;
 int swapped;
 
-if (array == NULL || size < 2)
+if (!array == || size < 2)
 return;
 
 for (i = 0; i < size - 1; i++)
